@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0912">
+<title>Rishikant Pandey | Personal Portfolio</title>
+<meta name="description" content="The personal portfolio of Rishikant Pandey — student, gamer, technology enthusiast and aspiring entrepreneur.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg:#0b0912;
+  --surface:#151020;
+  --purple:#a879ff;
+  --text:#f7f2ff;
+  --muted:#aaa0b9;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:85px; }
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,sans-serif;
+  line-height:1.7;
+}
+a { color:inherit; text-decoration:none; }
+.container { width:min(1100px,90%); margin:auto; }
+
+nav {
+  position:sticky; top:0; z-index:100;
+  background:#0b0912ed;
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #ffffff12;
+}
+.nav-inner {
+  height:75px; display:flex;
+  align-items:center; justify-content:space-between;
+}
+.logo { font-size:26px; font-weight:900; color:var(--purple); }
+.nav-links { display:flex; gap:30px; list-style:none; }
+.nav-links a { color:var(--muted); font-size:14px; }
+.nav-links a:hover { color:var(--purple); }
+.menu { display:none; background:none; border:0; color:white; font-size:25px; cursor:pointer; }
+
+.hero {
+  min-height:88vh; display:flex; align-items:center;
+  padding:90px 0;
+  background:radial-gradient(ellipse at 80% 30%,#49247730,transparent 50%);
+}
+.tag {
+  display:inline-block; padding:7px 14px;
+  border:1px solid #a879ff55; border-radius:30px;
+  color:var(--purple); font-size:12px;
+  letter-spacing:2px; margin-bottom:25px;
+}
+.hero h1 { font-size:clamp(40px,7vw,76px); line-height:1.12; }
+.gradient {
+  background:linear-gradient(90deg,#c8a7ff,#8b55ff);
+  -webkit-background-clip:text; color:transparent;
+}
+.hero p { color:var(--muted); max-width:590px; margin:25px 0; }
+.buttons { display:flex; gap:15px; flex-wrap:wrap; }
+.btn {
+  padding:12px 23px; border-radius:9px;
+  font-weight:700; display:inline-block;
+  transition:.25s;
+}
+.primary { background:var(--purple); color:#10091c; }
+.secondary { border:1px solid #76529f; color:white; }
+.btn:hover { transform:translateY(-3px); box-shadow:0 8px 25px #a879ff35; }
+
+section { padding:100px 0; }
+.section-title { font-size:35px; margin-bottom:12px; }
+.section-sub { color:var(--muted); margin-bottom:40px; }
+.about-grid {
+  display:grid; grid-template-columns:1.3fr 1fr;
+  gap:35px; align-items:center;
+}
+.panel {
+  background:var(--surface); border:1px solid #ffffff12;
+  border-radius:16px; padding:28px;
+}
+.panel p { color:var(--muted); margin-bottom:15px; }
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+.stat { background:#211832; padding:24px; border-radius:12px; }
+.stat h3 { color:var(--purple); font-size:30px; }
+.stat p { color:var(--muted); font-size:13px; }
+
+.cards {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+.card {
+  background:var(--surface); border:1px solid #ffffff12;
+  border-radius:14px; padding:25px; transition:.3s;
+}
+.card:hover { transform:translateY(-6px); border-color:var(--purple); }
+.card .emoji { font-size:32px; }
+.card h3 { margin:15px 0 8px; }
+.card p { color:var(--muted); font-size:14px; }
+
+.project-card {
+  background:var(--surface); border:1px solid #ffffff15;
+  padding:25px; border-radius:14px;
+}
+.project-card h3 { color:var(--purple); margin-bottom:10px; }
+.project-card p { color:var(--muted); font-size:14px; }
+
+.contact { text-align:center; }
+.contact .panel { max-width:650px; margin:auto; }
+footer {
+  padding:25px; text-align:center;
+  border-top:1px solid #ffffff12;
+  color:var(--muted); font-size:13px;
+}
+
+.reveal { opacity:0; transform:translateY(20px); transition:.7s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:750px) {
+  .menu { display:block; }
+  .nav-links {
+    display:none; position:absolute; top:75px;
+    left:0; right:0; background:#151020;
+    flex-direction:column; padding:25px;
+    gap:18px;
+  }
+  .nav-links.open { display:flex; }
+  .about-grid,.cards { grid-template-columns:1fr; }
+  section { padding:70px 0; }
+  .hero { min-height:75vh; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <div class="container nav-inner">
+  <a href="#home" class="logo">RP.</a>
+  <button class="menu" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  <ul class="nav-links" id="navLinks">
+   <li><a href="#home">Home</a></li>
+   <li><a href="#about">About</a></li>
+   <li><a href="#skills">Interests</a></li>
+   <li><a href="#projects">Projects</a></li>
+   <li><a href="#contact">Contact</a></li>
+  </ul>
+ </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+ <div class="container">
+  <span class="tag">STUDENT · GAMER · DREAMER</span>
+  <h1>Hey, I'm<br><span class="gradient">Rishikant Pandey.</span></h1>
+  <p>
+   A student with a passion for gaming, technology
+   and entrepreneurship. Exploring new possibilities
+   and building my future, one step at a time.
+  </p>
+  <div class="buttons">
+   <a href="#about" class="btn primary">Discover My Story ↗</a>
+   <a href="#contact" class="btn secondary">Let's Connect</a>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container">
+  <h2 class="section-title">About Me<span class="gradient">.</span></h2>
+  <p class="section-sub">A little introduction to who I am.</p>
+  <div class="about-grid">
+   <div class="panel">
+    <h3>👋 Hello, World!</h3>
+    <br>
+    <p>
+     I'm Rishikant Pandey, a student currently studying
+     in Class 9-D. I love learning new things and
+     exploring the world of technology.
+    </p>
+    <p>
+     Apart from academics, I'm passionate about gaming,
+     technology and entrepreneurship. I am also a
+     Moderator at the Senpai Web Discord Channel,
+     where I enjoy helping manage the community.
+    </p>
+    <p>
+     My biggest inspiration is GamerFleet, whose journey
+     motivates me to follow my dreams.
+    </p>
+    <p>
+     I believe in learning, creating, gaming and growing
+     every day. My goal is to turn my passions into
+     something meaningful.
+    </p>
+   </div>
+   <div class="stats">
+    <div class="stat">
+     <h3>500+</h3><p>Steam Games 🎮</p>
+    </div>
+    <div class="stat">
+     <h3>01</h3><p>Community Moderator</p>
+    </div>
+    <div class="stat">
+     <h3>∞</h3><p>Ideas & Dreams</p>
+    </div>
+    <div class="stat">
+     <h3>24/7</h3><p>Curiosity</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="skills">
+ <div class="container">
+  <h2 class="section-title">My Interests<span class="gradient">.</span></h2>
+  <p class="section-sub">Things that make me excited to learn.</p>
+  <div class="cards">
+   <div class="card">
+    <div class="emoji">🎮</div>
+    <h3>Gaming</h3>
+    <p>A passionate gamer with a collection of 500+
+    games in my Steam library.</p>
+   </div>
+   <div class="card">
+    <div class="emoji">💻</div>
+    <h3>Technology</h3>
+    <p>Exploring digital innovation, computers
+    and the ever-changing tech world.</p>
+   </div>
+   <div class="card">
+    <div class="emoji">🚀</div>
+    <h3>Entrepreneurship</h3>
+    <p>Dreaming big, exploring opportunities
+    and learning how to build something valuable.</p>
+   </div>
+   <div class="card">
+    <div class="emoji">🌐</div>
+    <h3>Community</h3>
+    <p>Being a moderator at Senpai Web
+    and contributing to online communities.</p>
+   </div>
+   <div class="card">
+    <div class="emoji">📚</div>
+    <h3>Learning</h3>
+    <p>Discovering new ideas, developing skills
+    and growing every day.</p>
+   </div>
+   <div class="card">
+    <div class="emoji">✨</div>
+    <h3>Creativity</h3>
+    <p>Turning imagination into ideas
+    and exploring new possibilities.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="projects">
+ <div class="container">
+  <h2 class="section-title">My Projects<span class="gradient">.</span></h2>
+  <p class="section-sub">My creative journey starts here.</p>
+  <div class="cards">
+   <div class="project-card">
+    <h3>🌌 Personal Portfolio</h3>
+    <p>A personal website to showcase my
+    interests, goals and journey.</p>
+   </div>
+   <div class="project-card">
+    <h3>🎮 Gaming Journey</h3>
+    <p>Exploring games and building
+    my personal gaming collection.</p>
+   </div>
+   <div class="project-card">
+    <h3>🌐 Community Activities</h3>
+    <p>Contributing to online communities
+    through moderation and teamwork.</p>
+   </div>
+  </div>
+  <p style="color:var(--muted);margin-top:25px;font-size:13px">
+   More exciting projects coming soon!
+  </p>
+ </div>
+</section>
+
+<section id="contact" class="contact">
+ <div class="container">
+  <h2 class="section-title">Let's Connect<span class="gradient">.</span></h2>
+  <p class="section-sub">Stay awesome, keep gaming and never stop dreaming!</p>
+  <div class="panel">
+   <h3>Have something interesting in mind? ✨</h3>
+   <p style="color:var(--muted);margin:15px 0">
+    I'm always excited to learn, explore and collaborate
+    on creative ideas.
+   </p>
+   <a href="https://discord.com/" target="_blank"
+      rel="noopener noreferrer" class="btn primary">
+      Find me on Discord ↗
+   </a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <p>Made with 💜 by Rishikant Pandey</p>
+ <p>© 2026 All Rights Reserved.</p>
+ <p>Stay curious. Keep creating. Dream big. 🚀</p>
+</footer>
+
+<script>
+function toggleMenu() {
+ const links = document.getElementById('navLinks');
+ const button = document.querySelector('.menu');
+ const open = links.classList.toggle('open');
+ button.setAttribute('aria-expanded',open);
+ button.textContent = open ? '✕' : '☰';
+}
+document.querySelectorAll('.nav-links a').forEach(link=>{
+ link.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+  document.querySelector('.menu').textContent='☰';
+  document.querySelector('.menu').setAttribute('aria-expanded','false');
+ });
+});
+const observer = new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('visible');
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:0.12});
+document.querySelectorAll('section').forEach(el=>{
+ el.classList.add('reveal');
+ observer.observe(el);
+});
+</script>
+
+</body>
+</html>
